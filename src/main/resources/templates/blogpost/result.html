@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Blog Site</title>
+<th:block th:replace="fragments/stylehead"></th:block>
+
+
+</head>
+<body>
+
+	<div class="container">
+	<div th:replace="/fragments/navbar"></div>
+		<div class="row">
+			<div class="col-md-12" th:object="${blogPost}">
+				<div class="card">
+					<div class="card-header">
+						<p th:text="*{title}" />
+					</div>
+					<div class="card-body">
+						<p th:text="*{author}" />
+						<p th:text="*{blogEntry}" />
+					</div>
+					<div class="card-footer">
+						<a th:href="@{/}">
+						<button class="btn btn-success">Back
+								To Home Page</button></a> 
+					    <a th:href="@{/blogposts/new}">
+					    <button class="btn btn-primary">Submit a New Post</button></a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<th:block th:replace="fragments/stylebottom"></th:block>
+
+</body>
+</html>
